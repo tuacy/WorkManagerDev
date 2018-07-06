@@ -8,22 +8,17 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button_output"
+        android:id="@+id/button_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="启动一个带参数的任务，并且获取任务返回值"/>
+        android:text="开始任务"/>
 
-    <Button
-        android:id="@+id/button_intervals"
+    <TextView
+        android:id="@+id/text_out"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="执行定期任务"/>
-
-    <Button
-        android:id="@+id/button_constraints"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="约束任务"/>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="20sp" />
 
 
 </LinearLayout>

@@ -1,38 +1,47 @@
 package com.tuacy.workmanagerdev;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
-
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
 
 public class MainActivity extends AppCompatActivity {
 
-	private Button mButtonStartWork;
+	private Context mContext;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		mContext = this;
 		initView();
 		initEvent();
 		initData();
 	}
 
 	private void initView() {
-		mButtonStartWork = findViewById(R.id.button_one);
+		findViewById(R.id.button_output).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				InputOutputWorkerActivity.startUp(mContext);
+			}
+		});
+		findViewById(R.id.button_intervals).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				PeriodicWorkerActivity.startUp(mContext);
+			}
+		});
+		findViewById(R.id.button_constraints).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				ConstraintsWorkerActivity.startUp(mContext);
+			}
+		});
 	}
 
 	private void initEvent() {
-		mButtonStartWork.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				OneTimeWorkRequest compressionWork = new OneTimeWorkRequest.Builder(CompressWorker.class).build();
-				WorkManager.getInstance().enqueue(compressionWork);
-			}
-		});
+
 	}
 
 	private void initData() {
