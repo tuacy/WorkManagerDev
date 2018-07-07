@@ -1,4 +1,4 @@
-package com.tuacy.workmanagerdev;
+package com.tuacy.workmanagerdev.periodic;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,10 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.tuacy.workmanagerdev.R;
+
 import java.util.concurrent.TimeUnit;
 
-import androidx.work.BackoffPolicy;
-import androidx.work.OneTimeWorkRequest;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 

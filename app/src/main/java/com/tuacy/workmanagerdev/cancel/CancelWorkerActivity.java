@@ -1,4 +1,4 @@
-package com.tuacy.workmanagerdev;
+package com.tuacy.workmanagerdev.cancel;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,18 +8,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.concurrent.TimeUnit;
+import com.tuacy.workmanagerdev.constraints.ConstraintsWorker;
+import com.tuacy.workmanagerdev.R;
 
-import androidx.work.Constraints;
-import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
-import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
-public class ConstraintsWorkerActivity extends AppCompatActivity {
+public class CancelWorkerActivity extends AppCompatActivity {
 
 	public static void startUp(Context context) {
-		context.startActivity(new Intent(context, ConstraintsWorkerActivity.class));
+		context.startActivity(new Intent(context, CancelWorkerActivity.class));
 	}
 
 	private Button mButtonStart;
@@ -27,7 +25,7 @@ public class ConstraintsWorkerActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_constraints_worker);
+		setContentView(R.layout.activity_cancel_worker);
 		initView();
 		initEvent();
 		initData();
@@ -60,12 +58,17 @@ public class ConstraintsWorkerActivity extends AppCompatActivity {
 	 * 启动约束任务
 	 */
 	private void startWorker() {
-		// 设置只有在wifi状态下才能执行
-		Constraints constraints = new Constraints.Builder().setRequiredNetworkType(NetworkType.UNMETERED).build();
-		// 设置约束条件
-		OneTimeWorkRequest request = new OneTimeWorkRequest.Builder(ConstraintsWorker.class).setConstraints(constraints).build();
+		// 给任务设置tag->cancel
+		OneTimeWorkRequest request = new OneTimeWorkRequest.Builder(ConstraintsWorker.class).addTag("cancel").build();
 		// 任务入队，WorkManager调度执行
 		WorkManager.getInstance().enqueue(request);
+	}
+
+	/**
+	 * 通过tag取消任务
+	 */
+	private void cancelWorker() {
+		WorkManager.getInstance().cancelAllWorkByTag("cancel");
 	}
 
 }

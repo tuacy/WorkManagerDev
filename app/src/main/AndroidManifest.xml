@@ -16,9 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InputOutputWorkerActivity" />
-        <activity android:name=".PeriodicWorkerActivity" />
-        <activity android:name=".ConstraintsWorkerActivity" />
+        <activity android:name=".inputoutput.InputOutputWorkerActivity" />
+        <activity android:name=".periodic.PeriodicWorkerActivity" />
+        <activity android:name=".constraints.ConstraintsWorkerActivity" />
+        <activity android:name=".cancel.CancelWorkerActivity" />
+        <activity android:name=".then.OrderWorkerActivity" />
+        <activity android:name=".combine.CombineWorkerActivity" />
+        <activity android:name=".taskchainstream.TaskCharinStreamActivity" />
+        <activity android:name=".unique.UniqueWorkerActivity" />
     </application>
 
 </manifest>

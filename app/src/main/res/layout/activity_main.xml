@@ -25,5 +25,35 @@
         android:layout_height="wrap_content"
         android:text="约束任务"/>
 
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消任务"/>
+
+    <Button
+        android:id="@+id/button_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="顺序执行任务"/>
+
+    <Button
+        android:id="@+id/button_combine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="组合任务"/>
+
+    <Button
+        android:id="@+id/button_task_charin_stream"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="任务链数据流"/>
+
+    <Button
+        android:id="@+id/button_task_unique"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="唯一工作队列"/>
+
 
 </LinearLayout>

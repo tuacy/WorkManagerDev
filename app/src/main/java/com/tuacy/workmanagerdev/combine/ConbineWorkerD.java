@@ -1,11 +1,11 @@
-package com.tuacy.workmanagerdev;
+package com.tuacy.workmanagerdev.combine;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
 
 import androidx.work.Worker;
 
-public class ConstraintsWorker extends Worker {
+public class ConbineWorkerD extends Worker{
 
 	@NonNull
 	@Override
@@ -13,7 +13,7 @@ public class ConstraintsWorker extends Worker {
 		try {
 			//模拟耗时任务
 			Thread.sleep(1000);
-			Log.d("tuacy", "ConstraintsWorker doWork");
+			Log.d("tuacy", "ConbineWorkerD work");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
